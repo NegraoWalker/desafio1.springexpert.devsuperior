@@ -1,0 +1,14 @@
+1. Mapeamento JPA:
+    - Na implementação do relacionamento Nx1 entre entidades - sempre o dono do relacionamento (dependente) é o lado N:
+        - O dono fica com @ManyToOne - @JoinColumn(name = "").
+        - O lado espelho fica com @OneToMany(mappedBy = "") - variável do tipo List.
+    - Na implementação do relacionamento 1x1 entre entidades - você escolhe o dono do relacionamento (dependente):
+        - O dono fica com @OneToOne - @JoinColumn(name = "").
+        - O lado espelho fica com @OneToMany(mappedBy = "").
+    - Na implementação do relacionamento NxN entre entidades - você escolhe o dono do relacionamento (dependente):
+        - O dono fica com @ManyToMany - @JoinTable(
+                 name = "",
+                 joinColumns = @JoinColumn(name = ""),
+                 inverseJoinColumns = @JoinColumn(name = "")
+                 ) - variável do tipo List.
+        - O lado espelho fica com @ManyToMany(mappedBy = "") - variável do tipo List.
